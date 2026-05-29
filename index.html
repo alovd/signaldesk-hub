@@ -1,356 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signal Desk — Minimalist Printable Planners</title>
-  <meta name="description" content="Minimalist printable planners and trackers for ADHD, productivity, and home organisation. Instant digital download.">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black: #111111;
-      --white: #fafaf8;
-      --gold: #b89435;
-      --mid: #555555;
-      --border: #e2e0db;
-      --radius: 4px;
-      --max: 600px;
-    }
-
-    body {
-      background: var(--white);
-      color: var(--black);
-      font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .header {
-      padding: 2.5rem 1.25rem 1.5rem;
-      max-width: var(--max);
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-    }
-    .header__eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-    .header__brand {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-    .header__tagline {
-      margin-top: 0.5rem;
-      font-size: 0.92rem;
-      color: var(--mid);
-    }
-
-    .main {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 1.25rem 3rem;
-    }
-
-    .section {
-      margin-top: 2rem;
-    }
-    .section__label {
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cards {
-      display: flex;
-      flex-direction: column;
-      gap: 0.625rem;
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      padding: 0.875rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.15s, background 0.15s;
-    }
-    .card:hover {
-      border-color: var(--black);
-      background: #f4f3ef;
-    }
-    .card--featured {
-      border-color: var(--gold);
-    }
-    .card--featured:hover {
-      border-color: var(--black);
-    }
-
-    .badge {
-      display: inline-block;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.1rem;
-    }
-
-    .card__title {
-      font-size: 0.94rem;
-      font-weight: 600;
-      line-height: 1.3;
-    }
-    .card__hook {
-      font-size: 0.82rem;
-      color: var(--mid);
-      line-height: 1.4;
-    }
-    .card__footer {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-top: 0.2rem;
-    }
-    .card__price {
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-    .card__cta {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--gold);
-    }
-
-    .footer {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.75rem;
-      color: var(--mid);
-      text-align: center;
-    }
-    .footer a { color: var(--mid); }
-
-    @media (min-width: 480px) {
-      .cards {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.625rem;
-      }
-      .card--featured {
-        grid-column: 1 / -1;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signal Desk — Minimalist Planners &amp; Printables</title>
+<meta name="description" content="Minimalist planners &amp; printables — calm tools for a clearer day.">
+<meta name="theme-color" content="#0e0e10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%230e0e10'/%3E%3Cg%20fill='%23d4af6f'%3E%3Crect%20x='8'%20y='17'%20width='3'%20height='7'/%3E%3Crect%20x='14'%20y='12'%20width='3'%20height='12'/%3E%3Crect%20x='20'%20y='7'%20width='3'%20height='17'/%3E%3C/g%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Signal Desk — Minimalist Planners &amp; Printables">
+<meta property="og:description" content="Minimalist planners &amp; printables — calm tools for a clearer day.">
+<meta name="twitter:card" content="summary">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --bg:#0e0e10;--surface:#17171b;--surface-2:#1d1d22;--line:#2b2b31;
+  --ink:#f4f2ec;--muted:#a6a39b;--gold:#d4af6f;
+  --maxw:640px;
+}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:40px 20px 56px}
+header{text-align:center;margin-bottom:34px}
+.wordmark{
+  font-size:13px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 14px;font-weight:600;
+}
+.tagline{font-size:24px;line-height:1.3;margin:0 auto 10px;max-width:18em;font-weight:500}
+.subline{font-size:14px;color:var(--muted);margin:0 auto;max-width:24em}
+.section{margin-top:34px}
+.section__label{
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent,#d4af6f);margin:0 0 2px;font-weight:600;
+}
+.section__blurb{font-size:13px;color:var(--muted);margin:0 0 14px}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+.card{
+  display:flex;flex-direction:column;gap:7px;
+  background:var(--surface);border:1px solid var(--line);
+  border-left:3px solid var(--accent,#d4af6f);border-radius:12px;
+  padding:16px 16px 15px;text-decoration:none;color:inherit;
+  transition:transform .15s ease,border-color .15s ease,background .15s ease;
+}
+.card:hover{transform:translateY(-2px);background:var(--surface-2);border-color:#3a3a42}
+.card:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.card__head{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.card__title{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.card__blurb{font-size:13.5px;color:var(--muted);flex:1 0 auto}
+.card__cta{font-size:13px;font-weight:600;color:var(--gold);margin-top:2px}
+.badge{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:#0e0e10;background:var(--gold);border-radius:99px;padding:3px 9px;
+}
+.card--hero{
+  grid-column:1/-1;background:linear-gradient(180deg,#1f1c15,#17171b);
+  border:1px solid #3a3120;border-left:3px solid var(--gold);padding:22px 20px;
+}
+.card--hero .card__title{font-size:21px}
+.card--hero .card__blurb{font-size:15px;color:#d9d4c8}
+footer{margin-top:40px;text-align:center;font-size:12px;color:var(--muted);line-height:1.7}
+footer a{color:var(--muted)}
+@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
 </head>
 <body>
-  <header class="header">
-    <p class="header__eyebrow">Signal Desk</p>
-    <h1 class="header__brand">Minimal planners.<br>Maximum clarity.</h1>
-    <p class="header__tagline">Printable &amp; fillable PDFs — instant download. Print at home or use in GoodNotes.</p>
-  </header>
-  <main class="main">
-  <section class="section">
-    <h2 class="section__label">Bundles</h2>
-    <div class="cards">
-    <a class="card  card--featured" href="https://www.etsy.com/listing/4491893714/?utm_source=linkinbio&utm_medium=organic&utm_campaign=minimalist-planner-bundle&utm_content=hub-link" target="_blank" rel="noopener">
-      <span class="badge">Best Value</span>
-      <span class="card__title">Minimalist Planner Bundle</span>
-      <span class="card__hook">THREE PLANNERS. ONE SYSTEM. ZERO CLUTTER.</span>
-      <span class="card__footer">
-        <span class="card__price">$3.99</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    </div>
-  </section>
-  <section class="section">
-    <h2 class="section__label">ADHD Brain</h2>
-    <div class="cards">
-    <a class="card" href="https://www.etsy.com/listing/4512365813/?utm_source=linkinbio&utm_medium=organic&utm_campaign=adhd-brain-dump-printable&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">ADHD Brain Dump</span>
-      <span class="card__hook">Get it out of your head. All of it.</span>
-      <span class="card__footer">
-        <span class="card__price">$3.19</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4511343303/?utm_source=linkinbio&utm_medium=organic&utm_campaign=adhd-cleaning-planner&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">ADHD Cleaning Planner</span>
-      <span class="card__hook">Clean the house without the overwhelm.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4508756226/?utm_source=linkinbio&utm_medium=organic&utm_campaign=adhd-monthly-planner-printable&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">ADHD Monthly Planner</span>
-      <span class="card__hook">A monthly view your ADHD brain can actually use.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4507441769/?utm_source=linkinbio&utm_medium=organic&utm_campaign=adhd-weekly-planner&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">ADHD Weekly Planner</span>
-      <span class="card__hook">Plan your week without the noise.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4504628686/?utm_source=linkinbio&utm_medium=organic&utm_campaign=adhd-daily-planner&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">ADHD Daily Planner</span>
-      <span class="card__hook">The only ADHD daily planner that doesn't look like a hyperfixation.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    </div>
-  </section>
-  <section class="section">
-    <h2 class="section__label">Planner Library</h2>
-    <div class="cards">
-    <a class="card" href="https://www.etsy.com/listing/4491322787/?utm_source=linkinbio&utm_medium=organic&utm_campaign=minimalist-monthly-planner&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">Minimalist Monthly Planner</span>
-      <span class="card__hook">Undated. Portrait or landscape. Pick your layout.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4490909257/?utm_source=linkinbio&utm_medium=organic&utm_campaign=minimalist-weekly-planner-printable&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">Minimalist Weekly Planner</span>
-      <span class="card__hook">A clean week. Every week.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4490426326/?utm_source=linkinbio&utm_medium=organic&utm_campaign=minimalist-daily-planner&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">Minimalist Daily Planner</span>
-      <span class="card__hook">One day. Fully planned.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    </div>
-  </section>
-  <section class="section">
-    <h2 class="section__label">Lists & Trackers</h2>
-    <div class="cards">
-    <a class="card" href="https://www.etsy.com/listing/4493769470/?utm_source=linkinbio&utm_medium=organic&utm_campaign=minimalist-to-do-list-printable&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">To Do List Printable</span>
-      <span class="card__hook">Five clean designs. One that fits how your brain works.</span>
-      <span class="card__footer">
-        <span class="card__price">$3.19</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4495706719/?utm_source=linkinbio&utm_medium=organic&utm_campaign=workout-tracker-printable&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">Workout Tracker</span>
-      <span class="card__hook">Track your lifts. Keep it simple.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4492517555/?utm_source=linkinbio&utm_medium=organic&utm_campaign=monthly-habit-tracker-printable&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">Monthly Habit Tracker</span>
-      <span class="card__hook">Build the habit. Track it clearly.</span>
-      <span class="card__footer">
-        <span class="card__price">$3.19</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4493088664/?utm_source=linkinbio&utm_medium=organic&utm_campaign=minimal-to-do-list-pdf&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">Minimal To Do List</span>
-      <span class="card__hook">Fillable. Minimal. Done.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    </div>
-  </section>
-  <section class="section">
-    <h2 class="section__label">Home</h2>
-    <div class="cards">
-    <a class="card" href="https://www.etsy.com/listing/4500371206/?utm_source=linkinbio&utm_medium=organic&utm_campaign=grocery-list-printable&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">Grocery List Printable</span>
-      <span class="card__hook">Three clean layouts. Never forget anything.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4497502785/?utm_source=linkinbio&utm_medium=organic&utm_campaign=monthly-meal-planner-printable&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">Monthly Meal Planner</span>
-      <span class="card__hook">Plan a month of meals in 20 minutes.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    <a class="card" href="https://www.etsy.com/listing/4496896473/?utm_source=linkinbio&utm_medium=organic&utm_campaign=weekly-meal-planner-printable&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">Weekly Meal Planner</span>
-      <span class="card__hook">Plan the week. Skip the decision fatigue.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    </div>
-  </section>
-  <section class="section">
-    <h2 class="section__label">At Work</h2>
-    <div class="cards">
-    <a class="card" href="https://www.etsy.com/listing/4492231239/?utm_source=linkinbio&utm_medium=organic&utm_campaign=social-media-content-planner&utm_content=hub-link" target="_blank" rel="noopener">
-      
-      <span class="card__title">Social Media Content Planner</span>
-      <span class="card__hook">Content planned. Caption written. Post scheduled.</span>
-      <span class="card__footer">
-        <span class="card__price">$2.39</span>
-        <span class="card__cta">Get it &rarr;</span>
-      </span>
-    </a>
-    </div>
-  </section>
-  </main>
-  <footer class="footer">
-    <p>All products are instant digital downloads &mdash; <a href="https://www.etsy.com/shop/signaldesk" target="_blank" rel="noopener">Browse the full shop on Etsy</a></p>
-  </footer>
+<main class="wrap">
+<header>
+<p class="wordmark">Signal Desk</p>
+<h1 class="tagline">Minimalist planners &amp; printables — calm tools for a clearer day.</h1>
+<p class="subline">Instant digital downloads. Print at home or use on iPad / GoodNotes.</p>
+</header>
+<section class="section" aria-label="The bundle"><h2 class="section__label" style="--accent:#d4af6f">The bundle</h2><p class="section__blurb">The whole library in one calm system — best value.</p><div class="grid">
+<a class="card card--hero" style="--accent:#d4af6f" href="https://www.etsy.com/listing/4491893714/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=bundle&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="badge">Best value</span><span class="card__title">Minimalist Planner Bundle</span></span><span class="card__blurb">Daily, weekly &amp; monthly planners — 28 undated printable files in one calm system.</span><span class="card__cta">Get the bundle <span aria-hidden="true">&rarr;</span></span></a>
+</div></section>
+<section class="section" aria-label="ADHD planners"><h2 class="section__label" style="--accent:#8fb3c9">ADHD planners</h2><p class="section__blurb">Structure without the overwhelm.</p><div class="grid">
+<a class="card" style="--accent:#8fb3c9" href="https://www.etsy.com/listing/4504628686/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=adhd-daily&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">ADHD Daily Planner</span></span><span class="card__blurb">Hourly schedule with built-in focus, mood and brain-dump — structure without the clutter.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#8fb3c9" href="https://www.etsy.com/listing/4512365813/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=adhd-brain-dump&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">ADHD Brain Dump Printable</span></span><span class="card__blurb">Four brain-dump layouts plus a worry tracker to get the swirl out of your head.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#8fb3c9" href="https://www.etsy.com/listing/4507441769/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=adhd-weekly&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">ADHD Weekly Planner</span></span><span class="card__blurb">A fillable, undated weekly plan in four sizes — for print or iPad.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#8fb3c9" href="https://www.etsy.com/listing/4508756226/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=adhd-monthly&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">ADHD Monthly Planner</span></span><span class="card__blurb">An undated, fillable monthly calendar you can reuse forever.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#8fb3c9" href="https://www.etsy.com/listing/4511343303/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=adhd-cleaning&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">ADHD Cleaning Planner</span></span><span class="card__blurb">A weekly cleaning schedule by day and zone, with a habit tracker. Small wins, less guilt.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+</div></section>
+<section class="section" aria-label="Minimalist planners"><h2 class="section__label" style="--accent:#c8c2b6">Minimalist planners</h2><p class="section__blurb">Undated, reusable, clutter-free.</p><div class="grid">
+<a class="card" style="--accent:#c8c2b6" href="https://www.etsy.com/listing/4490909257/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=min-weekly&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Minimalist Weekly Planner</span></span><span class="card__blurb">A clean, undated weekly planner in A4, A5 and US Letter.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#c8c2b6" href="https://www.etsy.com/listing/4490426326/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=min-daily&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Minimalist Daily Planner</span></span><span class="card__blurb">An undated daily productivity schedule that keeps the day simple.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#c8c2b6" href="https://www.etsy.com/listing/4491322787/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=min-monthly&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Minimalist Monthly Planner</span></span><span class="card__blurb">An undated monthly calendar in portrait and landscape — plan any month, any year.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+</div></section>
+<section class="section" aria-label="Lists &amp; trackers"><h2 class="section__label" style="--accent:#a9c29a">Lists &amp; trackers</h2><p class="section__blurb">Habits, to-dos and training — kept simple.</p><div class="grid">
+<a class="card" style="--accent:#a9c29a" href="https://www.etsy.com/listing/4492517555/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=habit-tracker&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Monthly Habit Tracker</span></span><span class="card__blurb">A clean monthly habit tracker in A4, A5 and Letter — bullet-journal friendly.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#a9c29a" href="https://www.etsy.com/listing/4493769470/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=todo-5&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Priority To-Do List</span></span><span class="card__blurb">Five clean to-do layouts including priority and time-block versions.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#a9c29a" href="https://www.etsy.com/listing/4493088664/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=todo-goodnotes&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Minimal To-Do List for GoodNotes</span></span><span class="card__blurb">A fillable, minimal checklist made for GoodNotes and iPad — tick it off, never reprint.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#a9c29a" href="https://www.etsy.com/listing/4495706719/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=workout&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Workout Tracker &amp; Gym Journal</span></span><span class="card__blurb">A clean printable log to keep training consistent.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+</div></section>
+<section class="section" aria-label="Meal &amp; home"><h2 class="section__label" style="--accent:#d8ac86">Meal &amp; home</h2><p class="section__blurb">Plan meals and shopping on one clean page.</p><div class="grid">
+<a class="card" style="--accent:#d8ac86" href="https://www.etsy.com/listing/4496896473/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=meal-weekly&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Weekly Meal Planner + Grocery List</span></span><span class="card__blurb">Plan the week&#x27;s meals and your grocery list on one clean page.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#d8ac86" href="https://www.etsy.com/listing/4497502785/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=meal-monthly&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Monthly Meal Planner</span></span><span class="card__blurb">Map a whole month of meals — two designs, Sunday or Monday start.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+<a class="card" style="--accent:#d8ac86" href="https://www.etsy.com/listing/4500371206/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=grocery&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Grocery &amp; Shopping List</span></span><span class="card__blurb">Three clean grocery list designs — fillable or print.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+</div></section>
+<section class="section" aria-label="At work"><h2 class="section__label" style="--accent:#b3a6cc">At work</h2><p class="section__blurb">Plan your content, not your color-coding.</p><div class="grid">
+<a class="card" style="--accent:#b3a6cc" href="https://www.etsy.com/listing/4492231239/?utm_source=linkinbio&amp;utm_medium=organic&amp;utm_campaign=content-planner&amp;utm_content=hub" target="_blank" rel="noopener noreferrer"><span class="card__head"><span class="card__title">Social Media Content Calendar</span></span><span class="card__blurb">Plan a month of posts — a clean content calendar and Instagram planner.</span><span class="card__cta">View on Etsy <span aria-hidden="true">&rarr;</span></span></a>
+</div></section>
+<footer>
+<a href="https://www.etsy.com/shop/SignalDeskCo" target="_blank" rel="noopener noreferrer">Visit the Etsy shop</a> &middot; Instant digital downloads &middot; prices &amp; details on Etsy.<br>
+&copy; Signal Desk. Print at home or use on iPad / GoodNotes.
+</footer>
+</main>
 </body>
 </html>
